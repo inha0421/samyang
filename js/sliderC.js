@@ -2,7 +2,7 @@ $(document).ready(function(){
 	
 
 		var i =0;
-		var speed = 500;
+		var speed = 1000;
 		var timing = 2000;
 		var $slider = $(".s_visual");		
 		var $nav = $(".s_visual .s_navi li");		

@@ -200,14 +200,18 @@ img{border: none;}
 
 .visual .prev{
     position: absolute;
-    top:250px;
-    left: 180px;
+    top:50%;
+    margin-top: -39px;
+    left: 50%;
+    margin-left: -650px;
     z-index: 7;
 }
 .visual .next{
     position: absolute;
-    top:250px;
-    right: 180px;
+    top:50%;
+    margin-top: -39px;
+    right: 50%;
+    margin-right: -650px;
     z-index: 7;
 }
 .visual{
@@ -220,7 +224,7 @@ img{border: none;}
 .visual .panel{
     width: 600%;
     height: 100%;
-    
+    text-indent: -9999px;
 }
 
 .visual .panel li{
@@ -238,25 +242,25 @@ img{border: none;}
     display: block;
 }
 
-.visual .panel li:nth-child(1) a{background-image: url(../img/main_slide01.jpg);}
-.visual .panel li:nth-child(2) a{background-image: url(../img/main_slide03.jpg);}
-.visual .panel li:nth-child(3) a{background-image: url(../img/main_slide02.jpg);}
-.visual .panel li:nth-child(4) a{background-image: url(../img/main_slide05.jpg);}
-.visual .panel li:nth-child(5) a{background-image: url(../img/main_slide04.jpg);}
-.visual .panel li:nth-child(6) a{background-image: url(../img/main_slide06.jpg);}
+.visual .panel .p1 a{background-image: url(../img/main_slide01.jpg);}
+.visual .panel .p2 a{background-image: url(../img/main_slide03.jpg);}
+.visual .panel .p3 a{background-image: url(../img/main_slide02.jpg);}
+.visual .panel .p4 a{background-image: url(../img/main_slide05.jpg);}
+.visual .panel .p5 a{background-image: url(../img/main_slide04.jpg);}
+.visual .panel .p6 a{background-image: url(../img/main_slide06.jpg);}
 
 .visual .navi{
     position: absolute;
-    bottom: 100px;
+    bottom: 80px;
     left: 50%;
-    margin-left: -90px;
+    margin-left: -50px;
 }
 .visual .navi li{
     float: left;
 }
 .visual .navi li a{
     display: block;
-    width: 30px;
+    width: 15px;
     height: 20px;
     background-repeat: no-repeat;
     background-position: center center;
@@ -264,8 +268,13 @@ img{border: none;}
 }
 .visual .navi li:hover a{
     background-image: url(../img/ico_slide_control2_on.png);
+    width: 30px;
 }
 
+.visual .navi .on a{
+    background-image: url(../img/ico_slide_control2_on.png);
+    width: 30px;
+}
 
 
 /********** center1 **********/
@@ -384,50 +393,104 @@ font-size: 27px;line-height: 1.3;}
 .center_top .menu li:nth-child(4) a{background-image: url(../img/product_tab4.png);}
 
 
-/*** sub Menu ***/
 
-.subMenuWrap > ul{
+/*********************************************/
+
+/*** sub Menu ***/
+.subMenuWrap{
+    width: 100%;
+    height: 400px;
     margin: 0 auto;
-    /*width: 1600px;*/
-    width: 85%;
-    height: 240px;
     overflow: hidden;
-    margin-top: 70px;
+    position: absolute;
+}
+.subMenuWrap > div{
+    width: 100%;
+    height: 100%;
 }
 
-.subMenuWrap > ul > li{
-    float: left;
-    width: 228px;
+.subMenuWrap > div> ul{
+    width: 1215%;
     height: 240px;
+    margin-top: 70px;
+    box-sizing: border-box;
+}
+
+.subMenuWrap > div > ul > li{
+    float: left;
+    width: 218px;
+    height: 100%;
     text-align: center;
 }
 
 
-.subMenuWrap > ul > li > h5  {
+.subMenuWrap > div> ul > li > h5  {
     text-align: center;
     padding-top: 10px;
     font-size: 14px;
     font-weight: normal;
-    
+    line-height: 1.2;
 }
-.subMenuWrap > ul > li > h5 > a{color: #999;}
-.subMenuWrap > ul > li > h3 {
+.subMenuWrap > div >ul > li > h5 > a{color: #999;}
+.subMenuWrap > div >ul > li > h3 {
     text-align: center;
     padding-top: 10px;
     font-size: 16px;
-    
 }
-.subMenuWrap > ul > li > h3 > a{color: #666;}
+.subMenuWrap > div> ul > li > h3 > a{color: #666;}
 
 /*********************/
 .subMenuWrap > .subMenu_noodle > li > a >img{
     width: 150px;
+    height: 150px;
 }
 
-.subMenu_noodle{display: block;}
-.subMenu_snack{display: none;}
-.subMenu_dairy{display: none;}
-.subMenu_sauce{display: none;}
+.u1{display: block;}
+.u2{display: none;}
+.u3{display: none;}
+.u4{display: none;}
+
+
+.subMenuWrap > div .btn{
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    height: 20px;
+}
+
+.subMenuWrap .u1 .btn{width : 120px; margin-left:-38px;}
+.subMenuWrap .u2 .btn{width : 60px; margin-left:-23px;}
+.subMenuWrap .u3 .btn{width : 60px; margin-left:-23px;}
+.subMenuWrap .u4 .btn{width : 120px; margin-left:-38px;}
+
+
+.subMenuWrap > div .btn li{
+    float:left;
+    width: 15px;
+    height: 20px;
+}
+
+.subMenuWrap > div .btn li a{
+    display: block;
+    width: 15px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url(../img/ico_slide_control.png);
+    margin: 0px;
+}
+
+
+.subMenuWrap > div .btn .btn_on{ width: 30px;}
+
+
+.subMenuWrap > div .btn .btn_on a{
+    background-image: url(../img/ico_slide_control2_on.png);
+    width: 30px;
+}
+
+
+
 
 /********** center1 **********/ 
 
@@ -580,6 +643,10 @@ padding-left: 33px;padding-top: 20px;}
 .visual5 .navi5 li:hover a{
     background-image: url(../img/ico_slide2_control_on.png);
 }
+.visual5 .navi5 .on5 a{
+    background-image: url(../img/ico_slide2_control_on.png);
+}
+
 
 /***************************************************/
 .center2 .right{

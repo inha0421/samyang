@@ -3,10 +3,11 @@ $(document).ready(function() {
 
     /* header의 top menu */
     
-    $(".gnb > li").mouseenter(function(){
+    $(".gnb > li, .gnbBG").mouseenter(function(){
         $(".gnb > li > ul , .gnbBG").stop().slideDown(200);
     });
-    $(".gnb > li").mouseleave(function(){
+
+    $(".gnb > li, .gnbBG").mouseleave(function(){
         $(".gnb > li > ul, .gnbBG").stop().slideUp(200);
     }); 
     
@@ -28,18 +29,60 @@ $(document).ready(function() {
         
     });
     
+
+
+    //////////////////////////////////////////////////
+
+
+
+    //제품 소개 화면에서 해당 카테고리의 ul 보여주기
+
     $(".menu > li").click(function(e){
-        
-        
+
         e.preventDefault(); //책갈피 없애는 기능!
         
         var list = $(this).index();
         
-        /* 해당 카테고리의 ul 보여주기*/
-        
-        $(".subMenuWrap > ul").hide();
-        $(".subMenuWrap > ul").eq(list).show();
-        
+        $(".subMenuWrap > div > ul:first-child").css({"margin-left":"0%"});
+        $(".btn li:first-child").addClass("btn_on");
+
+        $(".subMenuWrap > div ").hide();
+        $(".subMenuWrap > div ").eq(list).show();
+
+
+
+
     });
+
+
+    //제품 소개 ul 슬라이드
+
+
+
+    $(".btn li").click(function(){
+
+        $(".btn li").removeClass("btn_on");
+        $(this).addClass("btn_on");
+
+    });
+
+
+
+    $(".btn li").click(function(e){
+
+        e.preventDefault(); //책갈피 없애는 기능!
+        
+        var wid = $(".subMenuWrap > div > ul > li").width();
+        var len =$(this).length;
+        var i = $(".btn .btn_on").index();
+        var j = $(".subMenuWrap > div").index();
+        
+        $(".subMenuWrap > div > ul:first-child").animate({"margin-left":-wid * i});
+
+    });
+
+
+
+
     
 });

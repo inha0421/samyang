@@ -2,7 +2,7 @@ $(document).ready(function(){
 	
 
 		var i =0;
-		var speed = 500;
+		var speed = 1000;
 		var timing = 1500;
 		var $slider = $(".visual5");		
 		var $nav = $(".visual5 .navi5 li");		
@@ -49,7 +49,9 @@ $(document).ready(function(){
 				i=index;
 				$nav.children("a").removeClass();
 				$(this).children("a").addClass("on");
-				$panel.stop().animate({"margin-left": -wid*i},speed);					
+				$panel.stop().animate({"margin-left": -wid*i},speed);
+
+
 			});
 		}		
 		

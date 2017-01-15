@@ -1,92 +1,140 @@
 $(document).ready(function(){
 	
 
-		var i =0;
-		var speed = 500;
-		var timing = 2000;
-		var $slider = $(".visual");		
-		var $nav = $(".visual .navi li");		
-		var $panel = $(".visual .panel");
-		var $play = $(".visual .play");
-		var $stop = $(".visual .stop");
-		var wid = $slider.width();
-		var num = $nav.length;
-	
-		start();
-		doSlider();	
-		auto();		
-		
-		$(window).on("resize",function(){
-			wid = $slider.width();
-			$nav.eq(0).click();
-		});
-		
-		
-		//정지 버튼 클릭 시
-		$stop.on("click",function(e){
-			e.preventDefault();
-			$play.removeClass("on");
-			$(this).addClass("on");
-			end();
-		});
-		
-		//시작 버튼 클릭 시
-		$play.on("click",function(e){
-			e.preventDefault();
-			$stop.removeClass("on");
-			$(this).addClass("on");
-			start();
-		});
-		
-		
-		
-	
-		//클릭시 슬라이더 동작
-		function doSlider(){
-			$nav.on("click",function(e){	
-				e.preventDefault();
-				var index = $(this).index();
-				i=index;
-				$nav.children("a").removeClass();
-				$(this).children("a").addClass("on");
-				$panel.stop().animate({"margin-left": -wid*i},speed);					
-			});
-		}		
-		
-		//자동롤링시작
-		function start(){		
-			timer = setInterval(function(){				 
-				i++;
-				if(i==num) i=0;				
-				$nav.children("a").removeClass();
-				$nav.eq(i).children("a").addClass("on");
-				$panel.stop().animate({"margin-left": -wid*i},speed);					
-			},timing);
-		}
-		
-		//자동롤링 종료
-		function end(){
-			clearInterval(timer);
-		}
-		
-		
-		//마우스 오버시 자동 시작, 정지
-		
-		function auto(){
-			$slider.hover(function(){
-				$play.removeClass("on");
-				$stop.addClass("on");
-				end();
-			},function(){
-				$stop.removeClass("on");
-				$play.addClass("on");
-				start();
-			});
-		}
-	
-	
-	
-	
+    //메인 슬라이더 구현
+
+
+    var i = $(".navi .on").index();
+    var wid = $(".visual").width();
+    var len = $(".navi li").length;
+
+
+    //버튼에 on 클래스 처리
+
+    $(".navi li").click(function(){
+
+        $(".navi li").removeClass("on");
+        $(this).addClass("on");
+
+    });
+
+    $(".navi li").mouseenter(function(){
+
+        $(".navi li").removeClass("on");
+        $(this).addClass("on");
+
+    });
+
+
+
+    //prev 버튼 구현
+
+    $(".prev").click(function(){
+
+        if(i == 0){
+            i = len-1;
+        }
+
+        else{
+            i--;
+        }
+
+        Sliding();
+
+    });
+
+
+
+    //next 버튼 구현
+
+    $(".next").click(function(){
+
+        if(i == len-1){
+            i = 0;
+        }
+
+        else{
+            i++;
+        }
+
+        Sliding();
+
+    });
+
+    //버튼 눌렀을때 해당 슬라이드 화면으로 이동
+
+
+    $(".navi li").click(function(){
+
+        i = $(this).index();
+        Sliding();
+
+    });
+
+
+
+    //슬라이드 함수 구현
+
+
+    function Sliding(){
+
+        $(".navi li").removeClass("on");
+        $(".navi li").eq(i).addClass("on");
+        $(".panel").animate({"margin-left": -wid * i},500);
+
+    }
+
+
+    //자동 재생 구현
+
+    var auto = setInterval (function(){
+
+        if(i == len-1){
+            i = 0;
+        }
+
+        else{
+            i++;
+        }
+
+        Sliding();
+
+
+    },2000);
+
+
+    //마우스 오버시 자동 재생 정지
+
+
+    $(".visual").mouseenter(function(){
+
+        clearInterval(auto);
+
+    });
+
+    //마우스리브시 자동 재생 다시 시작
+
+
+
+    $(".visual").mouseleave(function(){
+
+
+        auto = setInterval (function(){
+
+        if(i == len-1){
+            i = 0;
+        }
+
+        else{
+            i++;
+        }
+
+        Sliding();
+
+
+    },2000);
+
+    });
 
 	
 });
