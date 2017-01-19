@@ -82,7 +82,29 @@ $(document).ready(function() {
     });
 
 
+    // 사이드 quick 메뉴 fixed 구현
+
+    var qck = $(".quick").offset().top;
 
 
+    $(document).scroll(function(e){
+
+        e.preventDefault();
+        var sc = $(this).scrollTop();
+
+        if(sc >= qck){
+            $(".quick").addClass("fix");
+        }
+        else if(sc < qck){
+         $(".quick").removeClass("fix");
+        }
+    });
+
+    $(".quick ul li:last-child a").click(function(){
+
+        var sc = $(this).scrollTop();
+        sc = 0;
+
+    });
     
 });
