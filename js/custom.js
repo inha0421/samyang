@@ -107,4 +107,34 @@ $(document).ready(function() {
 
     });
     
+
+    //패밀리 구현
+
+    $(".family a").click(function(e){
+
+        e.preventDefault();
+
+        $(".family ul").toggleClass("toggle");
+
+    });
+
+    //언어박스 구현
+        //패밀리 구현
+
+    $(".lang >a").click(function(e){
+
+        e.preventDefault();
+
+        $(".lang ul").addClass("toggle");
+
+    });
+    $(".lang ul li a").click(function(e){
+
+        e.preventDefault();
+
+        $(".lang ul").removeClass("toggle");
+
+    });
+
+
 });

@@ -100,7 +100,7 @@ img{border: none;}
     margin-top: 5px;
 }
 
-.headerWrap .top .topUL > li:nth-child(8) a {
+.headerWrap .top .topUL > li:nth-child(8) >a {
     width: 50px;
     height: 20px;
     border: 1px solid #dadada;
@@ -109,6 +109,46 @@ img{border: none;}
     margin-top: 5px;
 }
 
+/* 언어박스 */
+
+.lang{
+    position: relative;
+}
+
+.lang ul{
+    position: absolute;
+    top : 5px;
+    width: 50px;
+    border: 1px solid #999;
+    border-radius:5px 5px;
+    display: none;
+    background-color: #fff;
+    z-index: 9;
+}
+
+.lang ul.toggle{
+    display: block;
+}
+
+.lang ul li a{
+    display: block;
+    width: 50px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #333;
+}
+
+.lang ul li:hover a{
+    font-weight: bold;
+}
+
+
+
+
+
+/************************************/
 .headerWrap header {
     width:1140px;
     height: 90px;
@@ -657,7 +697,7 @@ padding-left: 33px;padding-top: 20px;}
     right: 40px;
     background-image: url(../img/quick_bg.png);
     background-repeat: no-repeat;
-    z-index: 10;
+    z-index: 9;
 }
 
 .quick ul{
@@ -846,24 +886,60 @@ footer .rightF li:nth-child(3) a{background-image: url(../img/ico_sns_twitter2.p
 footer .rightF li:nth-child(4) a{background-image: url(../img/ico_sns_facebook2.png);}
 
 footer .family{
-    display: block;
-    width: 240px;
-    height: 40px;
     background-color: #fff;
-    border: 1px solid #dadada;
+    border: 1px solid #999;
     position: absolute;
     top: 40px;
     right: 0px;
-    padding-top: 13px;
-    padding-left: 20px;
-    font-size: 12px;
-    box-sizing: border-box;
-    font-weight: bold;
-    color: #333;
     background-image: url(../img/ico_sel_arr.gif);
     background-repeat: no-repeat;
     background-position: 215px 17px;
 }
+
+footer .family >a{
+    display: block;
+    width: 240px;
+    height: 35px;
+    font-size: 15px;
+    line-height: 35px;
+    font-weight: bold;
+    color: #333;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+footer .family ul{
+    position: absolute;
+    top : -176px;
+    left: -1px;
+    background-color: #fff;
+    border: 1px solid #999;
+    box-sizing: border-box;
+    display: none;
+}
+
+footer .family ul.toggle{
+    display: block;
+}
+
+footer .family ul li a{
+    display: block;
+    width: 240px;
+    height: 35px;
+    font-size: 15px;
+    line-height: 35px;
+    color: #333;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+footer .family ul li:hover a{
+    color: #000;
+    font-weight: bold;
+}
+
+
+
 footer .centerF{
     position: absolute;
     top: 70px;
